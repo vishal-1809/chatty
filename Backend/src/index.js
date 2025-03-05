@@ -2,7 +2,7 @@ import express, { request } from "express";
 import cors from "cors";
 // import passport from "passport";
 import cookieParser from "cookie-parser";
-import cookieSession from "cookie-session";
+// import cookieSession from "cookie-session";
 import authRoutes from "./routes/auth.route.js";
 import profileInfo from "./routes/profileInfo.route.js"
 import messageRoutes from "./routes/message.route.js";
