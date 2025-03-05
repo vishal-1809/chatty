@@ -24,15 +24,15 @@ const Sidebar = () => {
 
   useEffect(() => {
     getUsers();
-    getNotification(authUser._id);
-    subscribeToMessages();
-    return () => unsubscribeFromMessages();
+    // getNotification(authUser._id);
+    // subscribeToMessages();
+    // return () => unsubscribeFromMessages();
   }, [
     getUsers,
     selectedUser,
-    getNotification,
-    subscribeToMessages,
-    unsubscribeFromMessages,
+    // getNotification,
+    // subscribeToMessages,
+    // unsubscribeFromMessages,
   ]);
 
   const userNotification = (userIdToFind) => {
