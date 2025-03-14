@@ -3,7 +3,7 @@
 A full-stack social media platform featuring user authentication, post interactions, messaging, and account management.
 
 
-## Visit 
+## Live Demo 
 https://chatty-ukv3.onrender.com/
 
 ## Features
