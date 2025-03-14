@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 
 const ForgotPassword = () => {
@@ -35,7 +36,9 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     setOtp(null);
-  }, [])
+  }, []);
+
+
     
   const sendOtp = async () => {
     const username = formData.userName;
@@ -43,7 +46,20 @@ const ForgotPassword = () => {
       toast.error("Username is required");
     }
     else {
-      await getOtp({userName: username});
+      const result = await getOtp({userName: username});
+      emailjs
+      .send(
+        'service_4k4kkr7',
+        'template_9etvx2i',
+        {
+            from_name: "Chatty",
+            to_name: result.username,
+            from_email: result.email,
+            to_email: result.email,
+            message: result.otp,
+        },
+        "QePtZrLC9GljElVm5"
+      );
     }
   }
 

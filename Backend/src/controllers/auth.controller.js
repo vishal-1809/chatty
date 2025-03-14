@@ -5,6 +5,7 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
 
+
 export const signup = async (req, res) => {
     const { email, fullName, userName, password } = req.body;
     const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
@@ -455,29 +456,28 @@ export const getOtp = async (req, res) => {
         // OTP Generate Logic function logic
         const otp = Math.floor(Math.random() * 9000) + 1000;
 
-        // Otp Sending Logic
-        let testAccount = await nodemailer.createTestAccount();
+        // Otp Sending Logic now in frontend
+        // let testAccount = await nodemailer.createTestAccount();
 
         // connect with the smtp
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'not_set_yet',
-                pass: 'not_set_yet'
-            }
-          });
+        // let transporter = nodemailer.createTransport({
+        //     host: "smtp.gmail.com",
+        //     port: 465,
+        //     secure: true,
+        //     auth: {
+        //         user: 'not_set_yet',
+        //         pass: 'not_set_yet'
+        //     }
+        //   });
 
-        let info = await transporter.sendMail({
-            from: 'chatter@chatty.com', // sender address
-            to: email, // list of receivers
-            subject: `${otp} OTP`, // Subject linex
-            text: `${otp} OTP`, // plain text body
-            html: `<b>OTP: ${otp} to reset your password.</b>`, // html body
-        });
+        // let info = await transporter.sendMail({
+        //     from: 'chatter@chatty.com', // sender address
+        //     to: email, // list of receivers
+        //     subject: `${otp} OTP`, // Subject linex
+        //     text: `${otp} OTP`, // plain text body
+        //     html: `<b>OTP: ${otp} to reset your password.</b>`, // html body
+        // });
 
-          console.log("Message sent: %s", info.messageId);
 
         const [localPart, domain] = email.split('@');
 
@@ -487,7 +487,7 @@ export const getOtp = async (req, res) => {
         // Construct the final masked email
         const maskedEmail = maskedLocalPart + '@' + domain;
 
-        return res.status(200).json({ message: `OTP sent on your registered email address: ${maskedEmail}`, otp: otp });
+        return res.status(200).json({ message: `OTP sent on your registered email address: ${maskedEmail}`, otp: otp, email: email });
 
     } catch (error) {
         console.log("error in forgotPassword function:", error);

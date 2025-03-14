@@ -154,6 +154,7 @@ export const useAuthStore = create((set, get) => ({
       set({ otp: res.data.otp });
       set({ otpSent: true});
       toast.success(res.data.message);
+      return { otp: res.data.otp, email: res.data.email };
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
