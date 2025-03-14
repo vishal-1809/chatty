@@ -49,8 +49,8 @@ const ForgotPassword = () => {
       const result = await getOtp({userName: username});
       emailjs
       .send(
-        'service_4k4kkr7',
-        'template_9etvx2i',
+        'SERVICE_ID',
+        'TEMPLATE',
         {
             from_name: "Chatty",
             to_name: result.username,
@@ -58,7 +58,7 @@ const ForgotPassword = () => {
             to_email: result.email,
             message: result.otp,
         },
-        "QePtZrLC9GljElVm5"
+        "PRIVATE_KEY"
       );
     }
   }
