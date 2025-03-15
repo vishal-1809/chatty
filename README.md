@@ -4,7 +4,7 @@ A full-stack social media platform featuring user authentication, post interacti
 
 
 ## Live Demo 
-https://chatty-ukv3.onrender.com/
+[🌐 Chatty](https://chatty-ukv3.onrender.com/)
 
 ## Features
 - **User Authentication**: Secure login and registration.
