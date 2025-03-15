@@ -59,6 +59,7 @@ npm run dev
 ```
 
 ## Results
+![Chatty Preview](/Frontend/src/assets/result-chatty.png)
 
 ## Contributing
 Feel free to contribute by submitting pull requests. Ensure your code follows best practices and is well-documented.
